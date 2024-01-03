@@ -1,1 +1,1 @@
-# dynamodb-integration-with-python
+# Dynamodb
