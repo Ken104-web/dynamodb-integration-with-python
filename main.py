@@ -32,13 +32,25 @@ table = dynamodb.create_table(
 print('Table status:', table.table_status)
 
 table = dynamodb.Table('Users')
-
+ 
+ # insert data
 table.put_item(
     Item={
-        'username': 'johndoe',
-        'last_name': 'Doe',
-        'first_name': 'John',
-        'age': 25,
+        'username': 'Mwangi',
+        'last_name': 'Warui',
+        'first_name': 'Ken',
+        'age': 21,
         'account_type': 'standard_user',
     }
 )
+
+# retrive data
+
+resp = table.get_item(
+        key={
+            'username':'Mwangi'
+            'last_name':'Warui'
+            }
+        )
+item = resp['Item']
+print(item)
