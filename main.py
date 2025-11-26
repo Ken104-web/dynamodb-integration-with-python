@@ -1,7 +1,8 @@
 import boto3
 
  
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb',
+                          region_name= 'us-east-1')
 
 
 table = dynamodb.create_table(
@@ -34,8 +35,8 @@ table = dynamodb.create_table(
 print('Table status:', table.table_status)
 
 table = dynamodb.Table('Users')
-
-
+#
+#
 
  # insert data
 table.put_item(
