@@ -1,10 +1,12 @@
 import boto3
 
+ 
 dynamodb = boto3.resource('dynamodb')
+
 
 table = dynamodb.create_table(
     TableName = 'Users',
-    keySchema = [
+    KeySchema = [
          {
             'AttributeName': 'username',
             'KeyType': 'HASH'
@@ -32,7 +34,9 @@ table = dynamodb.create_table(
 print('Table status:', table.table_status)
 
 table = dynamodb.Table('Users')
- 
+
+
+
  # insert data
 table.put_item(
     Item={
@@ -47,10 +51,11 @@ table.put_item(
 # retrive data
 
 resp = table.get_item(
-        key={
-            'username':'Mwangi'
-            'last_name':'Warui'
+        Key={
+            'username':'Mwangi',
+            'last_name':'Warui',
             }
         )
+
 item = resp['Item']
 print(item)
